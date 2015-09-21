@@ -1,0 +1,13 @@
+<form class="homeSearch" ng-submit='handleSubmit({location: location, term: term})'>
+  Location: <input type="text" name="location" ng-model='location'></input>
+  Search Term: <input type="text" name="term" ng-model='term'></input>
+  <input type="submit"></input>
+</form>
+<div class="resultsContainer">
+  <ul class="homeSearchResults">
+    <div ng-repeat='result in searchResults'>
+      <div>{{result}}</div>
+      <button class='addResult'>+</button>
+    </div>
+  </ul>
+</div>
