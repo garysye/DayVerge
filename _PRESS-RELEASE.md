@@ -18,27 +18,37 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  DayVerge AKA DAYV
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Better searching for multiple-location trips.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  This app allows you to search around multiple locations on Yelp at the same time in order to plan multi-location trips.  For example, you can enter multiple museums to visit, and then search for restaurants near each of those.  Then, you can select multiple restaurants and look for more places around those.  This enables you to scope out multiple possibilities for a full day trip or in other words, see how your day can verge.
+
 
 ## Problem ##
   > Describe the problem your product solves.
+  Yelp and other review sites only allow you to search near one location at a time and makes it difficult to save and compare different possible itineraries.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  My product allows you to save multiple locations, search them simultaneous, select more locatios and continue, giving you a side-by-side comparison at the end.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "See how your day can verge"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  As easy as it to do a regular yelp search.  Enter your search term and location and select locations to add, and repeat.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "This has just revolutionized the way I plan out my trips and vacations!"
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+Go to our site and search for yourself.
