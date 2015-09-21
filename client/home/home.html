@@ -3,11 +3,22 @@
   Search Term: <input type="text" name="term" ng-model='term'></input>
   <input type="submit"></input>
 </form>
+<button class='continue' ng-click='continue()'>Continue</button>
 <div class="resultsContainer">
   <ul class="homeSearchResults">
+    <lh>Search Results</lh>
     <div ng-repeat='result in searchResults'>
-      <div>{{result}}</div>
-      <button class='addResult'>+</button>
+      <div>{{result.name}}</div>
+      <span>{{result.streetAddr}}</span>
+      <button class='addResult' ng-click='addResult(result)'>+</button>
+    </div>
+  </ul>
+  <ul class="savedLocations">
+    <lh>Saved Locations</lh>
+    <div ng-repeat='location in savedLocations'>
+      <div>{{location.name}}</div>
+      <span>{{location.streetAddr}}</span>
+      <button class='removeLoc' ng-click='removeLoc(location)'>-</button>
     </div>
   </ul>
 </div>
