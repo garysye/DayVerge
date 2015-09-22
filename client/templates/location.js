@@ -31,9 +31,10 @@ angular.module('dayverge.locations', [])
   };
 
   $scope.$on('locationSubmit', function (event) {
-    Yelp.searchYelp($scope.location.data.address.join(', '), $scope.searchTerm).then(function (data) {
-      $scope.searchResults = data.slice(0,4);
+    Yelp.searchYelp($scope.location.data.address.join(', '), $scope.searchTerm, $scope.location.data.coords).then(function (data) {
+      $scope.searchResults = data;
     })
   });
 
 })
+

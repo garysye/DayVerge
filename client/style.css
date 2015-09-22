@@ -1,0 +1,17 @@
+.removeLoc {
+ float: right;
+}
+
+.addResult {
+  float: right;
+}
+
+.removeResult {
+  float: right;
+}
+
+.location-panel {
+  min-height: 120px;
+  max-height: 350px;
+  overflow-y: scroll;
+} 

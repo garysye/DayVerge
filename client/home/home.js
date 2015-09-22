@@ -7,7 +7,7 @@ angular.module('dayverge.home', [])
     console.log('beep boop');
     Yelp.searchYelp(params.location, params.term).then(function(data) {
       console.log(data);
-      $scope.searchResults = data.slice(0,4);
+      $scope.searchResults = data;
       console.log($scope.searchResults);
     });
   };

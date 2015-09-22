@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html ng-app='dayverge'>
 <head>
-  <meta charset="utf-8" />
-  <title>DayVerge</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+  
   <script src='lib/underscore/underscore-min.js'></script>
   <script src='lib/jquery/dist/jquery.min.js'></script>
   <script src='lib/angular/angular.min.js'></script>
@@ -10,6 +19,11 @@
   <script src='lib/angular-route/angular-route.min.js'></script>
   <script src='lib/oauth-signature/dist/oauth-signature.js'></script>
   <script src='lib/arboreal/lib/arboreal.js'></script> 
+
+  <title>DayVerge</title>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+
 
   <script src='env/config.js'></script>
   <script src='app.js'></script>
@@ -22,6 +36,6 @@
 </head>
 <body>
   <h1>DAYV</h1>
-  <div ui-view></div>
+  <div ui-view class="container-fluid"></div>
 </body>
 </html>

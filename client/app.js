@@ -5,7 +5,8 @@ angular.module('dayverge', [
   'dayverge.locations',
   'dayverge.directives',
   'dayverge.report',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider

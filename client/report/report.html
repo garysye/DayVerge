@@ -1,5 +1,20 @@
-<div class="reportContainer">
-
-  <div ng-repeat='location in allLocations'></div>
-  <!-- <location-report ><location-report> -->
+<div class="row">
+  <div class="col-md-4" ng-repeat='locationSet in allLocations'>
+    <div class="panel panel-default">
+      <div class="panel-heading">Verge #{{$index + 1}}</div>
+      <div class="panel-body">
+        <table class="table">
+          <tr ng-repeat='location in locationSet'>
+            <td>
+            <div>{{location.data.name}}</div>
+            <div>{{location.data.streetAddr}}</div>
+            <div>Rating: {{location.data.rating}}/5</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="panel-footer">Total Distance: {{(distances[$index] * 0.000621371).toFixed(2)}} mi.</div>
+    </div>
+  </div>
 </div>
+

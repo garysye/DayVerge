@@ -1,13 +1,50 @@
-<form class="homeSearch" ng-submit='handleSubmit()'>
-  Search Term: <input type="text" name="searchTerm" ng-model='searchTerm'></input>
-  <input type="submit"></input>
-</form>
-<button class='continue' ng-click='handleContinue()'>Continue</button>
-<button class='finish' ng-click='handleFinish()'>Finish</button>
-<ul class="savedLocations">
-  <lh>Saved Locations</lh>
-  <div ng-repeat='location in savedLocations' ng-controller='LocationController'>
-    <location-box></location-box>
-
+<form class="form-inline" ng-submit='handleSubmit()'>
+  <div class="form-group">
+    <label for="termInput">Term</label>
+    <input type="text" class="form-control" id="termInput" placeholder="e.g. Restaurants, Cafes" ng-model='searchTerm'></input>
   </div>
-</ul>
+  <button type="submit" class="btn btn-default">Search</input>
+</form>
+<button class="btn btn-default" ng-click='handleContinue()'>Continue</button>
+<button class="btn btn-default" ng-click='handleFinish()'>Finish</button>
+
+<div class="row">
+  <div class="col-md-4" ng-repeat='location in savedLocations' ng-controller='LocationController'>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{location.data.name}}<button class='removeLoc' ng-click='removeLoc(location)'>-</button></h3>
+        <div>{{location.data.streetAddr}}</div>
+      </div>
+      <div class="panel-body location-panel">
+        <table class="table table-striped table-condensed">
+          <thead><th>Results</th></thead>
+          <tbody>
+            <tr ng-repeat='result in savedResults' class="success">
+              <td>
+                <span>
+                  <div>{{result.name}}</div>
+                  <div>{{result.streetAddr}}</div>
+                  <div>Rating: {{result.rating}}/5</div>
+                  <div>Distance: {{(result.distance * 0.000621371).toFixed(2)}} mi.</div>
+                </span>
+              </td>
+              <td><button class='removeResult' ng-click='removeResult(result)'>-</button></td>
+            </tr>
+            <tr ng-repeat='result in searchResults'>
+              <td>
+                <span>
+                  <div>{{result.name}}</div>
+                  <div>{{result.streetAddr}}</div>
+                  <div>Rating: {{result.rating}}/5</div>
+                  <div>Distance: {{(result.distance * 0.000621371).toFixed(2)}} mi.</div>
+                </span>
+              </td>
+              <td><button class='addResult' ng-click='addResult(result)'>+</button></td>
+            </tr>
+          </tbody>
+        </table>  
+      </div>
+    </div>
+  </div>
+</div>
+
