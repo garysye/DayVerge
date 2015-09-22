@@ -1,13 +1,13 @@
-<form class="homeSearch" ng-submit='handleSubmit({location: location, term: term})'>
-  Location: <input type="text" name="location" ng-model='location'></input>
-  Search Term: <input type="text" name="term" ng-model='term'></input>
+<form class="homeSearch" ng-submit='handleSubmit()'>
+  Search Term: <input type="text" name="searchTerm" ng-model='searchTerm'></input>
   <input type="submit"></input>
 </form>
+<button class='continue' ng-click='handleContinue()'>Continue</button>
+<button class='finish' ng-click='handleFinish()'>Finish</button>
 <ul class="savedLocations">
   <lh>Saved Locations</lh>
-  <div ng-repeat='location in savedLocations'>
-    <div>{{location.name}}</div>
-    <span>{{location.streetAddr}}</span>
-    <button class='removeLoc' ng-click='removeLoc(location)'>-</button>
+  <div ng-repeat='location in savedLocations' ng-controller='LocationController'>
+    <location-box></location-box>
+
   </div>
 </ul>

@@ -2,19 +2,34 @@ angular.module('dayverge', [
   'dayverge.services',
   'dayverge.home',
   'dayverge.verge',
-  'ngRoute'
+  'dayverge.locations',
+  'dayverge.directives',
+  'dayverge.report',
+  'ui.router'
 ])
-.config(function ($routeProvider) {
-  $routeProvider
-    .when('/home', {
+.config(function ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider
+    .when('/continue', '/verge')
+    .otherwise('/home');
+
+  $stateProvider
+    .state('home', {
+      url: '/home',
       templateUrl: '/home/home.html',
       controller: 'HomeController'
     })
-    .when('/verge', {
+    .state('verge', {
+      url: '/verge',
       templateUrl: '/verge/verge.html',
       controller: 'VergeController'
     })
-    .otherwise({
-      redirectTo: '/home',
+    // .state('continue', {
+    //   url: '/continue',
+    //   redirectTo: 'verge'
+    // })
+    .state('report', {
+      url: '/report',
+      templateUrl: '/report/report.html',
+      controller: 'ReportController'
     })
 });

@@ -6,6 +6,7 @@
   <script src='lib/underscore/underscore-min.js'></script>
   <script src='lib/jquery/dist/jquery.min.js'></script>
   <script src='lib/angular/angular.min.js'></script>
+  <script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
   <script src='lib/angular-route/angular-route.min.js'></script>
   <script src='lib/oauth-signature/dist/oauth-signature.js'></script>
   <script src='lib/arboreal/lib/arboreal.js'></script> 
@@ -13,11 +14,14 @@
   <script src='env/config.js'></script>
   <script src='app.js'></script>
   <script src='services/services.js'></script>
+  <script src='directives/directives.js'></script>
+  <script src='templates/location.js'></script>
   <script src='home/home.js'></script>
   <script src='verge/verge.js'></script>
+  <script src='report/report.js'></script>
 </head>
 <body>
   <h1>DAYV</h1>
-  <div ng-view></div>
+  <div ui-view></div>
 </body>
 </html>

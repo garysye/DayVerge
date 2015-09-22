@@ -1,8 +1,20 @@
-angular.module('dayverge.directives' [])
+angular.module('dayverge.directives', [])
 
-.directive('resultsList', function() {
+.directive('resultsList', function () {
   return {
     restrict: 'E',
-    templateUrl: 'templates/result.html'
+    templateUrl: 'templates/results.html'
   };
+})
+.directive('locationBox', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/location.html'
+  };
+})
+.directive('locationReport', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'report/locationReport.html'
+  }
 })

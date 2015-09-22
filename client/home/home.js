@@ -6,6 +6,7 @@ angular.module('dayverge.home', [])
   $scope.handleSubmit = function (params) {
     console.log('beep boop');
     Yelp.searchYelp(params.location, params.term).then(function(data) {
+      console.log(data);
       $scope.searchResults = data.slice(0,4);
       console.log($scope.searchResults);
     });
@@ -26,7 +27,7 @@ angular.module('dayverge.home', [])
 
   $scope.continue = function() {
     console.log('yippee');
-    Yelp.continueAndSave($scope.savedLocations);
+    Yelp.continueAndSave({'0': $scope.savedLocations});
     $location.url('/verge')
   }
 

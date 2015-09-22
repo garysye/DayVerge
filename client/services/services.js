@@ -7,7 +7,7 @@ angular.module('dayverge.services', [])
 
   var searchYelp = function (location, term) {
     var method = 'GET';
-    var url = 'http://api.yelp.com/v2/search';
+    var url = 'http://api.yelp.com/v2/search?callback=JSON_CALLBACK';
     var params = {
       term: term,
       location: location,
@@ -20,13 +20,15 @@ angular.module('dayverge.services', [])
     };
     var signature = oauthSignature.generate(method, url, params, oauth.consumerSecret, oauth.tokenSecret, {encodeSignature: false});
     params['oauth_signature'] = signature;
-    console.log('tik tok');
-    
+      
     return $http.jsonp(url, {params: params})
       .then(function (resp) {
         console.log('chugga chugga');
        return formatResults(resp.data);
-      });
+      })
+      .catch(function (err) {
+        console.log(err);
+      })
   };
 
   var formatResults = function (data) {
@@ -40,25 +42,53 @@ angular.module('dayverge.services', [])
     });
   };
 
-  var continueAndSave = function (locations, id) {
-    id = id || '0';
-    var node = locationTree.find(id) || locationTree;
-    _.each(locations, function (location) {
-      node.appendChild(location);
+  var continueAndSave = function (locationsObj) {
+    lastLocations = [];
+    var root;
+    var newKey;
+    console.log('loc obj here')
+    console.log(locationsObj)
+    _.each(locationsObj, function (locations, key) {
+      root = locationTree.find(key);
+      _.each(locations, function (location) {
+        newKey = key + '/' + root.children.length;
+        root.appendChild(location);
+        lastLocations.push(locationTree.find(newKey));
+      })
+
     });
+    currentLevel++;
   }
 
   var retrieveLocations = function(id) {
-    id = id || '0';
-    return _.map(locationTree.find(id).children, function (node) {
-      return node.data;
+    return _.map(lastLocations, function (location) {
+      return location;
     });
+  }
+
+  var retrieveAllLocations = function() {
+    var allLocations = [];
+    var currentBranch = [];
+    locationTree.traverseDown(function (location) {
+      // console.log('loc here');
+      // console.log(location);
+      currentBranch.push(location)
+      if( location.children.length === 0 ) {
+        allLocations.push(currentBranch);
+        currentBranch.pop();
+        return false;
+      }
+      return true;
+    });
+
+    return allLocations;
   }
 
   return {
     searchYelp: searchYelp,
     continueAndSave: continueAndSave,
-    retrieveLocations: retrieveLocations
+    retrieveLocations: retrieveLocations,
+    retrieveAllLocations: retrieveAllLocations
   };
 })
 
