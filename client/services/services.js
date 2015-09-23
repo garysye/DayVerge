@@ -46,7 +46,8 @@ angular.module('dayverge.services', [])
         streetAddr: business.location.address[0],
         rating: business.rating,
         coords: business.location.coordinate,
-        distance: business.distance || 0
+        distance: business.distance || 0,
+        image_url: business.image_url
       };
     });
   };
@@ -76,13 +77,18 @@ angular.module('dayverge.services', [])
   var retrieveAllLocations = function() {
     var allLocations = [];
     var currentBranch = [];
+    var copyBranch = [];
 
     var traverseTree = function (tree) {
       if(tree.id !== '0') {
         currentBranch.push(tree);
       }
       if( tree.children.length === 0 ) {
-        allLocations.push(currentBranch.slice());
+        copyBranch = currentBranch.slice();
+        copyBranch.totalDist = _.reduce(copyBranch, function (memo, node) {
+          return memo + node.data.distance;
+        }, 0);
+        allLocations.push(copyBranch);
       } else {
         for( var i = 0; i < tree.children.length; i++ ) {
           traverseTree(tree.children[i]);

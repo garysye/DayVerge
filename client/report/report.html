@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-md-4" ng-repeat='locationSet in allLocations'>
-    <div class="panel panel-default">
+  <div class="col-md-4" ng-repeat='locationSet in allLocations | orderBy:"totalDist"'>
+    <div class="panel panel-warning">
       <div class="panel-heading">Verge #{{$index + 1}}</div>
       <div class="panel-body">
         <table class="table">
-          <tr ng-repeat='location in locationSet'>
+          <tr ng-repeat="location in locationSet">
             <td>
             <div>{{location.data.name}}</div>
             <div>{{location.data.streetAddr}}</div>
@@ -13,7 +13,7 @@
           </tr>
         </table>
       </div>
-      <div class="panel-footer">Total Distance: {{(distances[$index] * 0.000621371).toFixed(2)}} mi.</div>
+      <div class="panel-footer">Total Distance: {{(locationSet.totalDist * 0.000621371).toFixed(2)}} mi.</div>
     </div>
   </div>
 </div>

@@ -7,8 +7,8 @@
     <label for="termInput">Term</label>
     <input type="text" class="form-control" id="termInput" placeholder="e.g. Restaurants, Cafes" ng-model='term'></input>
   </div>
-  <button type="submit" class="btn btn-default">Search</input>
-  <button class="btn btn-default" ng-click='continue()'>Continue</button>
+  <button type="submit" class="btn btn-primary">Search</input>
+  <button class="btn btn-success" ng-click='continue()'>Continue</button>
 </form>
 
 <div class="row">
@@ -24,7 +24,7 @@
               <div>Rating: {{result.rating}}/5</div>
             </span>
           </td>
-          <td><button class='addResult' ng-click='addResult(result)'>+</button></td>
+          <td><button class='addResult btn btn-warning' ng-click='addResult(result)'><span class="glyphicon glyphicon-ok" aria-hidden="true" /> </button></td>
         </tr>
       </tbody>
     </table>
@@ -40,7 +40,7 @@
               <div>{{location.streetAddr}}</div>
               <div>Rating: {{location.rating}}/5</div>
             </span>
-            <td><button class='removeLoc' ng-click='removeLoc(location)'>-</button></td>
+            <td><button class='removeLoc btn btn-warning' ng-click='removeLoc(location)'><span class="glyphicon glyphicon-remove" aria-hidden="true" /> </button></td>
           </td>
         </tr>
       </tbody>

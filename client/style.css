@@ -15,3 +15,26 @@
   max-height: 350px;
   overflow-y: scroll;
 } 
+
+body {
+  background-image: url("assets/tanbackground.jpg");
+  background-repeat: repeat;
+}
+
+.logo {
+  position: relative;
+  left: 50px;
+  top: 8px;
+}
+
+.page-header {
+  background-color: #5C2E00;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.row {
+  margin: 5px;
+}
