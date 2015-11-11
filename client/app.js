@@ -7,7 +7,7 @@ angular.module('dayverge', [
   'dayverge.report',
   'ui.router',
   'ui.bootstrap'
-])
+  ])
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider
     .when('/continue', '/verge')
