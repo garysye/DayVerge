@@ -1,2 +1,2 @@
-#mvp
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked on with a pair.
+# DayVergance
+Web application that searches around multiple locations using Yelp and build itineraries with search results
